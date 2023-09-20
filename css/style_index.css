@@ -1,5 +1,5 @@
-body {
-  background-image: url('telaverde.jpg');
+#imgbody {
+  background-image: url('imagens/telaverde.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;

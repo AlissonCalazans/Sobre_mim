@@ -10,18 +10,18 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style_index.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-<body>
+<body id="imgbody">
   <header>
     <nav class="navbar navbar-dark" style="background-color: transparent;">
       <div class="container-fluid">
         <a class="navbar-brand text-white">Alisson Calazans</a>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+          <button class="btn btn-outline-warning" type="submit">Pesquisar</button>
         </form>
       </div>
     </nav>
@@ -36,7 +36,7 @@
     <div class="container-card">
       <div class="card">
         <img
-          src="rosto-de-jovem-negro-com-barba-retrato-masculino-ou-avatar-em-estilo-plano-vista-frontal_497399-251.avif"
+          src="css/imagens/rosto-de-jovem-negro-com-barba-retrato-masculino-ou-avatar-em-estilo-plano-vista-frontal_497399-251.avif"
           alt="Descrição da imagem">
         <div class="card__content">
           <p class="card__title">Portfólio</p>
@@ -67,49 +67,27 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="d-flex justify-content-between mb-3">
-            <a class="mb-3 mr-1" href="#indicador2" role="button" data-slide="prev">
-              <i class="fa fa-arrow-left"></i> Anterior
-            </a>
-            <a class="mb-3 " href="#indicador2" role="button" data-slide="next">
-              Proximo <i class="fa fa-arrow-right"></i>
-            </a>
-          </div>
-          <div class="col-12">
-            <div id="indicador2" class="carousel slide" data-ride="carousel">
-
-              <div class="carousel-inner p-4">
-                <div class="carousel-item active">
-                  <div class="row">
-                    <div class="col-md-4 mb-3">
-                      <div class="carrossel-card">
-                        <a href="calculadora.html">
-                          <p class="heading" href="calculadora.html">
-                            Calculadora
-                          </p>
-                          <p>
-                            Desenvolvimento de Sistemas
-                          </p>
-                          <p>
-                            JavaScript
-                          </p>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                      <div class="carrossel-card">
-                        <p class="heading">
-                          Portifólio
+          <div id="indicador2" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner p-4">
+              <div class="carousel-item active">
+                <div class="row">
+                  <div class="col-md-4 mb-4">
+                    <div class="carrossel-card">
+                      <a href="calculadora.html">
+                        <p class="heading" href="calculadora.html">
+                          Calculadora
                         </p>
                         <p>
                           Desenvolvimento de Sistemas
                         </p>
                         <p>
-                          HTML/CSS
+                          JavaScript
                         </p>
-                      </div>
+                      </a>
                     </div>
-                    <div class="col-md-4 mb-3">
+                  </div>
+                  <div class="col-md-4 mb-4">
+                    <a href="Alisson_Calazans.pdf">
                       <div class="carrossel-card">
                         <p class="heading">
                           Curriculo
@@ -121,8 +99,10 @@
                           Word
                         </p>
                       </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="IMC.html">
                       <div class="carrossel-card">
                         <p class="heading">
                           IMC
@@ -134,7 +114,7 @@
                           JavaScript
                         </p>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -142,6 +122,7 @@
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
