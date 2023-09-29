@@ -4,11 +4,6 @@
 let temaescuro = false;
 
 //Função para alterar entre o tema claro e escuro
-document.getElementById('switch').addEventListener('change', function() {
-    alterartema();
-  });
-
-
 function alterartema() {
     let body = document.body;
     if(temaescuro){

@@ -1,103 +1,68 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="CalculaSaúde é uma aplicação web onde você pode calcular seu IMC (Índice de Massa Corporal)">
-    <link rel="shortcut icon" href="./src/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./src/css/reset.css">
-    <link rel="stylesheet" href="./src/css/scrollbar.css">
-    <link rel="stylesheet" href="./src/css/font-awesome.css">
-    <link rel="stylesheet" href="./src/css/style.css">
-    <link rel="stylesheet" href="./src/css/responsive.css">
-    <title>CalculaSaúde</title>
+    <title>Calculadora</title>
+    <!-- CSS Bootstrap 3 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Biblioteca do Sweetalert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/calculadora.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estilos da página -->
+    <style>
+        .tema-escuro {
+            margin: 0;
+            background-color: black;
+            color: aliceblue;
+        }
+
+        #resultado {
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: chocolate;
+            width: 700;
+        }
+    </style>
+
+    <script src="calculadora.js"></script>
 </head>
 
 <body>
-    <header class="header">
-        <div class="logo">
-            <img src="./src/images/logo.png" alt="logo imc">
-            <h1 class="title">CalculaSaúde</h1>
+    <div class="container">
+        <h1>Calculadora</h1>
+        <div class="form-group">
+            <label for="num1">Número 1:</label>
+            <input type="number" class="form-control" id="num1" oninput="limparErro('num1')">
+            <small class="text-danger" id="num1-error"></small>
         </div>
-
-        <input class="toggle-theme" type="checkbox" id="switch" /><label for="switch">Toggle</label>
-    </header>
-
-    <main class="container">
-        <section class="card">
-            <h2 class="card-title">Calculadora de IMC</h2>
-            <p class="info-text">Coloque os seus dados na calculadora e calcule o seu IMC:</p>
-
-            <hr>
-
-            <form action="index.html" method="get" class="form show">
-
-                <label>Gênero</label>
-                <div class="radios-container">
-                    <div class="male-radio-container">
-                        <label for="male">Masculino</label>
-                        <input type="radio" name="gender" id="male" value="male">
-                    </div>
-
-                    <div class="female-radio-container">
-                        <label for="female">Feminino</label>
-                        <input type="radio" name="gender" id="female" value="female">
-                    </div>
-                </div>
-
-                <label for="age">Idade</label>
-                <input type="number" name="age" id="age" placeholder="Ex: 35" class="input">
-
-                <label for="weight">Peso (kg)</label>
-                <input type="number" name="weight" id="weight" placeholder="Ex: 75" class="input">
-
-                <label for="height">Altura (cm)</label>
-                <input type="number" name="height" id="height" placeholder="Ex: 1,77" class="input">
-
-                <button type="submit" class="submit-button">Calcular</button>
-            </form>
-
-            <div class="result-card hidden">
-                <p class="text">RESULTADO:</p>
-    
-                <div class="result-container">
-                    <p class="result-text">Seu IMC é: <span id="imc-value"></span></p>
-                </div>
-    
-                <button class="return-btn">Calcular Novamente</button>
-            </div>
-        </section>
-    </main>
-
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeModal()">&#x2716;</button>
-            <img src="./src/images/logo.png" alt="logo da clausula modal">
-            <h2>Bem-vindo ao CalculaSaúde!</h2>
-            <p>Aqui, você pode calcular o seu Índice de Massa Corporal (IMC) e obter uma avaliação da sua condição física.</p>  
+        <div class="form-group">
+            <label for="num2">Número 2:</label>
+            <input type="number" class="form-control" id="num2" oninput="limparErro('num2')">
+            <small class="text-danger" id="num2-error"></small>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" onclick="somar()">Somar</button>
+            <button class="btn btn-primary" onclick="subtrair()">Subtrair</button>
+            <button class="btn btn-primary" onclick="multiplicar()">Multiplicar</button>
+            <button class="btn btn-primary" onclick="dividir()">Dividir</button>
+            <button class="btn btn-danger" onclick="confirmLimpeza()">Limpar</button>
+        </div>
+        <div class="form-group">
+            <label for="result">Resultado:</label>
+            <input type="text" class="form-control" id="resultado" readonly>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-info" role="button" onclick="alterartema()">Alternar Tema</a>
         </div>
     </div>
-
-    <footer class="footer">
-        <nav>
-            <ul class="menu">
-                <li><a href="#"><i class="fa-brands fa-square-github"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-square-instagram"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-square-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
-            </ul>
-        </nav>
-
-        <p>&copy;2023 CalculaSaúde - Fransuelton | All Rights Reserved</p>
-        <a href="https://www.flaticon.com/free-icons/bmi" title="bmi icons" target="_blank">Bmi icons created
-            byphoto3idea_studio - Flaticon</a>
-    </footer>
-
-    <script src="./src/js/index.js"></script>
 </body>
-
 </html>
